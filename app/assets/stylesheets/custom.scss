@@ -7,6 +7,12 @@ body {
   padding-top: 60px;
   background: #f5f5f5;
 }
+#logo {
+  font-family: "Savoye LET";
+  padding-top: 4px;
+  font-weight: bold;
+  font-size: 3em;
+}
 
 // header
 
@@ -18,11 +24,6 @@ header {
   #logo {
     float: left;
     color: #000;
-    font-size: 3em;
-    font-family: "Savoye LET";
-    letter-spacing: -1px;
-    padding-top: 4px;
-    font-weight: bold;
     &:hover {
       text-decoration: none;
     }
@@ -40,5 +41,39 @@ footer {
     &:hover {
       text-decoration: none;
     }
+  }
+}
+
+// miscellaneous
+
+.debug_dump {
+  margin-top: 45px;
+  background: #fff;
+}
+
+// forms
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+input {
+  height: auto !important;
+}
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
   }
 }
