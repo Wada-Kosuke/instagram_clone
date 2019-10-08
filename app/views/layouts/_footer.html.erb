@@ -1,5 +1,7 @@
-<footer class="navbar navbar-fixed-bottom">
-  <nav>
-    <%= link_to "投稿する", "#" %>
-  </nav>
-</footer>
+<% if logged_in? %>
+  <footer class="navbar navbar-fixed-bottom">
+    <nav>
+      <%= link_to "投稿する", "#" %>
+    </nav>
+  </footer>
+<% end %>
