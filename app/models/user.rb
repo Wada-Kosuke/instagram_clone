@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :microposts, dependent: :destroy
   attr_accessor :remember_token, :activation_token
   before_save {email.downcase!}
   before_create :create_activation_digest
@@ -37,6 +38,10 @@ class User < ApplicationRecord
 
   def activate
     update_columns(activated: true, activated_at: Time.zone.now)
+  end
+
+  def feed
+    Micropost.where("user_id = ?", id)
   end
 
   private
