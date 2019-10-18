@@ -88,7 +88,8 @@ class UserTest < ActiveSupport::TestCase
 
   test "associated microposts should be destroyed" do
     @user.save
-    @user.microposts.create!(content: "Lorem ipsum")
+    @user.microposts.create!(content: "Lorem ipsum",
+            picture: File.open("./test/fixtures/test.jpg"))
     assert_difference 'Micropost.count', -1 do
       @user.destroy
     end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_15_133853) do
+ActiveRecord::Schema.define(version: 2019_10_16_134628) do
 
   create_table "microposts", force: :cascade do |t|
     t.text "content"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2019_10_15_133853) do
     t.string "activation_digest"
     t.boolean "activated", default: false
     t.datetime "activated_at"
+    t.string "user_image", default: "default_user_image.jpg"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

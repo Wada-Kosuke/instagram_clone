@@ -8,6 +8,7 @@ class MicropostsController < ApplicationController
       redirect_to root_url
     else
       @feed_items = []
+      @user = current_user
       render 'users/new'
     end
   end

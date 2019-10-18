@@ -4,7 +4,8 @@ class MicropostTest < ActiveSupport::TestCase
 
   def setup
     @user = users(:user1)
-    @micropost = @user.microposts.build(content: "Lorem ipsum")
+    @micropost = @user.microposts.build(content: "Lorem ipsum",
+        picture: File.open("./test/fixtures/test.jpg"))
   end
 
   test "should be valid" do
@@ -13,11 +14,6 @@ class MicropostTest < ActiveSupport::TestCase
 
   test "user id should be present" do
     @micropost.user_id = nil
-    assert_not @micropost.valid?
-  end
-
-  test "content should be present" do
-    @micropost.content = "   "
     assert_not @micropost.valid?
   end
 

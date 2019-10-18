@@ -6,7 +6,8 @@ User.create!(full_name: "Example Fullname",
              password_confirmation: "password",
              admin: true,
              activated: true,
-             activated_at: Time.zone.now)
+             activated_at: Time.zone.now,
+             user_image: File.open("./app/assets/images/user1.jpg"))
 
 30.times do |n|
   full_name  = Faker::Name.name
@@ -23,10 +24,12 @@ User.create!(full_name: "Example Fullname",
 end
 
 # マイクロポスト
-users = User.order(:created_at).take(6)
-50.times do
-  content = Faker::Lorem.sentence(5)
-  users.each { |user| user.microposts.create!(content: content) }
+
+users = User.order(:created_at).take(3)
+4.times do |n|
+  # content = Faker::Lorem.sentence(5)
+  users.each { |user| user.microposts.create!(
+    picture: File.open("./public/uploads/micropost/picture/pic#{n+1}.jpg")) }
 end
 
 # リレーションシップ

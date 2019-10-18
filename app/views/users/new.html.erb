@@ -1,14 +1,11 @@
 <% if logged_in? %>
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-7 col-md-offset-1">
       <%= render 'shared/feed' %>
     </div>
     <aside class="col-md-4">
-      <section class="user_info">
+      <section class="user_info home_user_info">
         <%= render 'shared/user_info' %>
-      </section>
-      <section class="stats">
-        <%= render 'shared/stats' %>
       </section>
       <section class="micropost_form">
         <%= render 'shared/micropost_form' %>

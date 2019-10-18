@@ -4,9 +4,23 @@
 // universal
 
 body {
-  padding-top: 90px;
+  padding-top: 140px;
   background: #f5f5f5;
+  a {
+    color: inherit;
+    &:hover {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+  h1 {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  li { list-style: none; }
+  p { margin: 0; }
 }
+
 #logo {
   font-family: "Savoye LET";
   padding-top: 4px;
@@ -39,9 +53,6 @@ footer {
     color: #888;
     font-size: 18px;
     font-weight: bold;
-    &:hover {
-      text-decoration: none;
-    }
   }
 }
 
@@ -99,39 +110,66 @@ input {
 // sidebar
 
 .stats {
-  overflow: auto;
-  margin-top: 0;
-  padding: 0;
   a {
     float: left;
-    padding: 0 10px;
-    border-left: 1px solid lightgray;
-    color: gray;
-    &:first-child {
-      padding-left: 0;
-      border: 0;
-    }
-    &:hover {
-      text-decoration: none;
-      color: blue;
-    }
-  }
-  strong {
-    display: block;
+    padding: 0 40px;
+    font-size: 16px;
   }
 }
 
-.user_avatars {
-  overflow: auto;
-  margin-top: 10px;
-  .gravatar {
-    margin: 1px 1px;
-  }
-  a {
-    padding: 0;
+.user_image {
+  border-radius: 50%;
+  border: 1px solid #bbb;
+}
+
+.user_info {
+  display: flex;
+}
+
+.home_user_info {
+  align-items: center;
+  margin-bottom: 14px;
+  img {
+    width: 60px;
+    margin-right: 20px;
   }
 }
 
-.users.follow {
-  padding: 0;
+.show_user_info {
+  width: 80%;
+  margin: auto;
+  img {
+    width: 150px;
+    margin: 0 60px;
+  }
+}
+
+// microposts
+
+.micropost {
+  margin-bottom: 30px;
+  background: #fff;
+  width: 600px;
+  border: 1px solid #ddd;
+  .user_image {
+    width: 40px;
+  }
+  .micropost_user_info {
+    img {
+      margin-right: 12px;
+    }
+    align-items: center;
+    padding: 12px;
+  }
+}
+
+.mini_microposts {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 0 5.3vw;
+  img {
+    width: 30%;
+    margin: 1.6%;
+  }
 }

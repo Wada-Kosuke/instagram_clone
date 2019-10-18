@@ -6,6 +6,9 @@
     <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
+      <%= f.label :user_image, "ユーザー画像" %>
+      <%= f.file_field :user_image, accept: 'image/jpeg,image/gif,image/png' %>
+
       <%= f.label :full_name, "名前" %>
       <%= f.text_field :full_name, class: 'form-control' %>
 
