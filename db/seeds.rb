@@ -29,7 +29,7 @@ users = User.order(:created_at).take(3)
 4.times do |n|
   # content = Faker::Lorem.sentence(5)
   users.each { |user| user.microposts.create!(
-    picture: File.open("./public/uploads/micropost/picture/pic#{n+1}.jpg")) }
+    picture: File.open("./app/assets/images/pic#{n+1}.jpg")) }
 end
 
 # リレーションシップ

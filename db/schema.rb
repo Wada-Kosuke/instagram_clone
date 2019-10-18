@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2019_10_16_134628) do
     t.string "activation_digest"
     t.boolean "activated", default: false
     t.datetime "activated_at"
-    t.string "user_image", default: "default_user_image.jpg"
+    t.string "user_image"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
