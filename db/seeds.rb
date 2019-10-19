@@ -26,11 +26,40 @@ end
 # マイクロポスト
 
 users = User.order(:created_at).take(3)
+
 4.times do |n|
-  # content = Faker::Lorem.sentence(5)
+  content = Faker::Lorem.sentence(5)
   users.each { |user| user.microposts.create!(
-    picture: File.open("./app/assets/images/pic#{n+1}.jpg")) }
+    picture: File.open("./app/assets/images/pic#{n+1}.jpg"),
+    content: content
+    )
+   }
+
+  # users.each { |user| user.comments.create!(
+  #   content: content,
+  #   micropost_id: User.first.microposts.first
+  #   )}
+  # microposts = Micropost.all
+  # users.each { |user| comment = user.comments.build(content: content)
+  #   microposts = Micropost.all
+  #   microposts.each do |m|
+  #     comment.micropost = m
+  #     comment.save
+  #   end }
 end
+
+users.each { |user|
+  microposts = Micropost.all
+  microposts.each do |micropost|
+    content = Faker::Lorem.sentence(5)
+    comment = user.comments.build(content: content)
+    comment.micropost = micropost
+    comment.save
+  end }
+
+
+# コメント
+
 
 # リレーションシップ
 users = User.all

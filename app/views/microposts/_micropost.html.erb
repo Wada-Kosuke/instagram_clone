@@ -1,21 +1,22 @@
 <li id="micropost-<%= micropost.id %>" class="micropost">
   <div class="user_info micropost_user_info">
     <% if micropost.user.user_image? %>
-    <%= image_tag micropost.user.user_image.url, class: "user_image" %>
+      <%= image_tag micropost.user.user_image.url, class: "user_image" %>
     <% else %>
-    <%= image_tag "default_user_image.jpg", class: "user_image" %>
+      <%= image_tag "default_user_image.jpg", class: "user_image" %>
     <% end %>
     <span class="user"><%= link_to micropost.user.user_name, micropost.user %></span>
   </div>
   <div class="content">
     <div class="picture">
-      <%= image_tag micropost.picture.url %>
+      <%= link_to((image_tag micropost.picture.url), micropost) %>
     </div>
+    <p><%= micropost.content if micropost.content? %></p>
   </div>
   <span class="timestamp">
     <%= time_ago_in_words(micropost.created_at) %> ago
     <% if current_user?(micropost.user) %>
-      <%= link_to "削除", micropost, method: :delete,
+      <%= link_to "削除する", micropost, method: :delete,
                                        data: { confirm: "本当に削除してよろしいですか？" } %>
     <% end %>
   </span>

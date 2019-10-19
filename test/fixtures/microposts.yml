@@ -1,10 +1,10 @@
-10_minutes_ago:
+micropost1:
   content: "10 minutes ago micropost"
   picture: File.open("./test/fixtures/test.jpg")
   created_at: <%= 10.minutes.ago %>
   user: user1
 
-2_hours_ago:
+micropost2:
   content: "2 hours ago micropost"
   picture: File.open("./test/fixtures/test.jpg")
   created_at: <%= 2.hours.ago %>

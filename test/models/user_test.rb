@@ -5,6 +5,13 @@ class UserTest < ActiveSupport::TestCase
   def setup
     @user = User.new(full_name: "Example User", user_name: "Example User",
                       email: "user@example.com", password: "foobar", password_confirmation: "foobar")
+    @user.save
+    @micropost = Micropost.new(user_id: @user.id, picture: File.open("./test/fixtures/test.jpg"))
+    @micropost.save
+    @comment = Comment.new(user_id: @user.id,
+                             micropost_id: @micropost.id,
+                             content: "example comment")
+    @comment.save
   end
 
   test "should be valid" do
@@ -87,9 +94,6 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "associated microposts should be destroyed" do
-    @user.save
-    @user.microposts.create!(content: "Lorem ipsum",
-            picture: File.open("./test/fixtures/test.jpg"))
     assert_difference 'Micropost.count', -1 do
       @user.destroy
     end
@@ -121,6 +125,12 @@ class UserTest < ActiveSupport::TestCase
     # フォローしていないユーザーの投稿を確認
     user2.microposts.each do |post_unfollowed|
       assert_not user1.feed.include?(post_unfollowed)
+    end
+  end
+
+  test "associated comments should be destroyed" do
+    assert_difference 'Comment.count', -1 do
+      @user.destroy
     end
   end
 

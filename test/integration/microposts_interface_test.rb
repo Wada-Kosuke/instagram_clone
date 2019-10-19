@@ -27,7 +27,7 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
     assert assigns(:micropost).picture?
     follow_redirect!
     # 投稿を削除する
-    assert_select "a", text: '削除'
+    assert_select "a", text: '削除する'
     first_micropost = @user.microposts.paginate(page: 1).first
     assert_difference 'Micropost.count', -1 do
       delete micropost_path(first_micropost)

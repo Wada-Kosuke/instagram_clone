@@ -1,0 +1,8 @@
+<%= form_for(@comment) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+    <%= f.text_area :content %>
+  </div>
+  <div><%= hidden_field_tag :micropost_id, @micropost.id %></div>
+  <%= f.submit "コメントする", class: "btn btn-primary" %>
+<% end %>

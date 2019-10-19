@@ -13,6 +13,12 @@ class MicropostsController < ApplicationController
     end
   end
 
+  def show
+    @micropost = Micropost.find_by(id: params[:id])
+    @user = User.find_by(id: @micropost.user_id)
+    @comment = current_user.comments.build
+  end
+
   def destroy
     @micropost.destroy
     redirect_to request.referrer || root_url

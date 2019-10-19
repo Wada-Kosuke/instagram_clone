@@ -1,0 +1,17 @@
+comment1:
+  content: "Good picture"
+  created_at: <%= 10.minutes.ago %>
+  user: user1
+  micropost: micropost1
+
+comment1:
+  content: "Nice picture"
+  created_at: <%= 2.hours.ago %>
+  user: user1
+  micropost: micropost1
+
+most_recent:
+  content: "most recent comment"
+  created_at: <%= Time.zone.now %>
+  user: user1
+  micropost: micropost1
