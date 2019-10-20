@@ -1,5 +1,5 @@
 <% provide(:title, "プロフィールの編集") %>
-<h1>プロフィールを編集する</h1>
+<h1 style="text-align: center;">プロフィールを編集する</h1>
 
 <div class="row">
   <div class="col-md-4 col-md-offset-4">
@@ -7,7 +7,7 @@
       <%= render 'shared/error_messages', object: f.object %>
 
       <%= f.label :user_image, "ユーザー画像" %>
-      <%= f.file_field :user_image, accept: 'image/jpeg,image/gif,image/png' %>
+      <%= f.file_field :user_image, accept: 'image/jpeg,image/gif,image/png', style: "margin-bottom: 16px;" %>
 
       <%= f.label :full_name, "名前" %>
       <%= f.text_field :full_name, class: 'form-control' %>

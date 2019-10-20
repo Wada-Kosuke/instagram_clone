@@ -14,10 +14,7 @@ body {
       color: inherit;
     }
   }
-  h1 {
-    margin-bottom: 30px;
-    text-align: center;
-  }
+  h1 { margin-bottom: 30px; }
   li { list-style: none; }
   p { margin: 0; }
 }
@@ -37,9 +34,7 @@ header {
   background: #fff;
   padding-top: 8px;
   border-bottom: 1px solid #ccc !important;
-  #logo {
-    float: left;
-  }
+  #logo { float: left; }
 }
 
 // footer
@@ -74,7 +69,7 @@ footer {
   border: 1px solid #ddd;
   padding: 14px;
   h2 {
-    margin: 0 0 28px;;
+    margin: 0 0 36px;;
     text-align: center;
   }
 }
@@ -82,7 +77,11 @@ footer {
 .btn, .form-control, textarea, select {
   border: 1px solid #bbb;
   width: 100%;
-  margin-bottom: 15px;
+  margin-bottom: 16px;
+}
+
+input {
+  margin-bottom: 16px;
 }
 
 textarea {
@@ -110,6 +109,11 @@ textarea {
 #session_remember_me {
   width: auto;
   margin-left: 0;
+}
+
+.edit_relationship, .new_relationship {
+  width: 50%;
+  margin: 16px auto 0;
 }
 
 // sidebar
@@ -143,6 +147,18 @@ textarea {
   justify-content: center;
   align-items: center;
   img { width: 150px; }
+}
+
+.current_user_in_show_follow {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  img { width: 150px; }
+  .current_user_name { font-size: 24px; }
+}
+
+.follow_ls {
+  li { margin-bottom: 6px; }
 }
 
 // microposts
@@ -179,9 +195,7 @@ textarea {
     width: 30%;
     margin: 1.6%;
   }
-  img {
-    width: 100%;
-  }
+  img { width: 100%; }
 }
 
 .comments {

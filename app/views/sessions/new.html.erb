@@ -1,8 +1,14 @@
 <% provide(:title, "ログイン") %>
-<h1 id="logo"><%= link_to "Instaclone", root_url %></h1>
-
 <div class="row">
-  <div class="col-md-4 col-md-offset-4">
+  <div class="col-md-6">
+    <div style="font-size: 30px;">
+      <%= link_to("Please login Example User", login_path) %>
+      <h1>email: user@example.com</h1>
+      <h1>password: password</h1>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <h1 id="logo"><%= link_to "Instaclone", root_url %></h1>
     <%= form_for(:session, url: login_path) do |f| %>
 
       <%= f.label :email %>
