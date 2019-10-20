@@ -74,7 +74,7 @@ footer {
   border: 1px solid #ddd;
   padding: 14px;
   h2 {
-    margin: 0 0 14px;;
+    margin: 0 0 28px;;
     text-align: center;
   }
 }
@@ -87,7 +87,7 @@ footer {
 
 textarea {
   margin: 14px 0;
-  height: 100px;
+  height: 120px;
 }
 
 #error_explanation {
@@ -134,7 +134,7 @@ textarea {
 
 .home_user_info {
   align-items: center;
-  margin-bottom: 14px;
+  position: fixed;
   img { width: 60px; }
 }
 
@@ -175,9 +175,12 @@ textarea {
   flex-wrap: wrap;
   width: 100%;
   padding: 0 5.3vw;
-  img {
+  a {
     width: 30%;
     margin: 1.6%;
+  }
+  img {
+    width: 100%;
   }
 }
 

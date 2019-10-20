@@ -1,7 +1,7 @@
 <%= form_for(@comment) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
-    <%= f.text_area :content %>
+    <%= f.text_area :content, placeholder: "140文字以下でコメントを入力" %>
   </div>
   <div><%= hidden_field_tag :micropost_id, @micropost.id %></div>
   <%= f.submit "コメントする", class: "btn btn-primary" %>

@@ -1,5 +1,5 @@
 class MicropostsController < ApplicationController
-  before_action :logged_in_user, only: [:create, :destroy]
+  before_action :logged_in_user, only: [:create, :destroy, :new]
   before_action :correct_user,   only: :destroy
 
   def create
@@ -7,9 +7,7 @@ class MicropostsController < ApplicationController
     if @micropost.save
       redirect_to root_url
     else
-      @feed_items = []
-      @user = current_user
-      render 'users/new'
+      render 'microposts/new'
     end
   end
 
@@ -22,6 +20,10 @@ class MicropostsController < ApplicationController
   def destroy
     @micropost.destroy
     redirect_to request.referrer || root_url
+  end
+
+  def new
+    @micropost  = current_user.microposts.build
   end
 
   private

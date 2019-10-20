@@ -19,7 +19,7 @@
       <h3 style="text-align: center">投稿 (<%= @user.microposts.count %>)</h3>
       <div class="mini_microposts">
         <% @microposts.each do |m| %>
-          <%= image_tag m.picture.url %>
+          <%= link_to((image_tag m.picture.url), m) %>
         <% end %>
       </div>
     <% end %>
