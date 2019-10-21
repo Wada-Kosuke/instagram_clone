@@ -1,0 +1,34 @@
+<% provide(:title, "プロフィールの編集") %>
+<h1 style="text-align: center;">プロフィールを編集する</h1>
+
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+    <%= form_for(@user) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :user_image, "ユーザー画像" %>
+      <%= f.file_field :user_image, accept: 'image/jpeg,image/gif,image/png', style: "margin-bottom: 16px;" %>
+
+      <%= f.label :full_name, "名前" %>
+      <%= f.text_field :full_name, class: 'form-control' %>
+
+      <%= f.label :user_name, "ユーザーネーム" %>
+      <%= f.text_field :user_name, class: 'form-control' %>
+
+
+      <%= f.label :email, "メールアドレス" %>
+      <%= f.email_field :email, class: 'form-control' %>
+
+      <%= f.label :password, "パスワード" %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.label :password_confirmation, "パスワードの再確認" %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+      <%= f.submit "送信する", class: "btn btn-primary" %>
+    <% end %>
+
+    <%= link_to "アカウントを削除する", @user, method: :delete,
+                                  data: { confirm: "本当に削除しますか？" } %>
+  </div>
+</div>

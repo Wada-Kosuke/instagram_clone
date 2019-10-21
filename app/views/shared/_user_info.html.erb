@@ -1,0 +1,9 @@
+<% if @user.user_image? %>
+  <%= image_tag @user.user_image.url, class: "user_image" %>
+<% else %>
+  <%= image_tag "default_user_image.jpg", class: "user_image" %>
+<% end %>
+<div class="current_user_name">
+  <p><%= link_to current_user.user_name, current_user %></p>
+  <p style="color: gray;"><%= current_user.full_name %></p>
+</div>

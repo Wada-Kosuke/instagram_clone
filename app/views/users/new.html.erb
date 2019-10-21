@@ -1,0 +1,48 @@
+<% if logged_in? %>
+  <div class="row">
+    <div class="col-md-7 col-md-offset-1">
+      <%= render 'shared/feed' %>
+    </div>
+    <aside class="col-md-4 visible-lg visible-md">
+      <section class="user_info home_user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+    </aside>
+  </div>
+<% else %>
+  <div class="row">
+    <div class="col-md-6">
+      <div style="font-size: 30px;">
+        <%= link_to("Please login Example User", login_path) %>
+        <h1>email: user@example.com</h1>
+        <h1>password: password</h1>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div>
+        <h1 id="logo">Instaclone</h1>
+        <!-- <p>友達の写真や動画をチェックしよう</p> -->
+        <%# <%= link_to "Facebookでログイン", "#", class: "btn btn-primary" %>
+        <!-- <p>または</p> -->
+
+        <%= form_for(@user, url: root_url) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+
+        <%= f.email_field :email, class: 'form-control', placeholder: "メールアドレス" %>
+        <%= f.text_field :full_name, class: 'form-control', placeholder: "フルネーム" %>
+        <%= f.text_field :user_name, class: 'form-control', placeholder: "ユーザーネーム" %>
+        <%= f.password_field :password, class: 'form-control', placeholder: "パスワード" %>
+        <%= f.password_field :password_confirmation, class: 'form-control', placeholder: "パスワードの再確認" %>
+
+        <%= f.submit "登録する", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+      <div>
+        <span>アカウントをお持ちですか？</span>
+        <font color="royalblue">
+          <%= link_to("ログインする", login_path) %>
+        </font>
+      </div>
+    </div>
+  </div>
+<% end %>

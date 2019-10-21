@@ -1,0 +1,218 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+// universal
+
+body {
+  padding-top: 140px;
+  background: #f5f5f5;
+  margin-bottom: 60px;
+  a {
+    color: inherit;
+    &:hover {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+  h1 { margin-bottom: 30px; }
+  li { list-style: none; }
+  p { margin: 0; }
+}
+
+#logo {
+  font-family: "Savoye LET";
+  padding-top: 4px;
+  font-weight: bold;
+  font-size: 3em;
+  text-align: center;
+}
+
+// header
+
+header {
+  height: 72px;
+  background: #fff;
+  padding-top: 8px;
+  border-bottom: 1px solid #ccc !important;
+  #logo { float: left; }
+}
+
+// footer
+
+footer {
+  position: fixed;
+  bottom: 60px;
+  left: 40px;
+  a {
+    position: fixed;
+    color: #888;
+    font-size: 16px;
+    font-weight: bold;
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 8px;
+    border-radius: 3px;
+  }
+}
+
+// miscellaneous
+
+.debug_dump {
+  margin-top: 45px;
+  background: #fff;
+}
+
+// forms
+
+.micropost_form {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 14px;
+  h2 {
+    margin: 0 0 36px;;
+    text-align: center;
+  }
+}
+
+.btn, .form-control, textarea, select {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+input {
+  margin-bottom: 16px;
+}
+
+textarea {
+  margin: 14px 0;
+  height: 120px;
+}
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form-control { color: $state-danger-text; }
+}
+
+.checkbox {
+  span { margin-left: 20px; }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
+
+.edit_relationship, .new_relationship {
+  width: 50%;
+  margin: 16px auto 0;
+}
+
+// sidebar
+
+.stats {
+  a {
+    float: left;
+    margin: 0 40px;
+    font-size: 16px;
+  }
+}
+
+.user_image {
+  border-radius: 50%;
+  border: 1px solid #bbb;
+  margin-right: 14px;
+}
+
+.user_info {
+  display: flex;
+}
+
+.home_user_info {
+  align-items: center;
+  position: fixed;
+  img { width: 60px; }
+}
+
+.show_user_info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img { width: 150px; }
+}
+
+.current_user_in_show_follow {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  img { width: 150px; }
+  .current_user_name { font-size: 24px; }
+}
+
+.follow_ls {
+  li { margin-bottom: 6px; }
+}
+
+// microposts
+
+.micropost {
+  margin-bottom: 30px;
+  background: #fff;
+  width: 92.2%;
+  border: 1px solid #ddd;
+  .user_image { width: 40px; }
+  .micropost_user_info {
+    align-items: center;
+    padding: 12px;
+    img { margin-right: 12px; }
+  }
+  .picture {
+    img { width: 100%; }
+  }
+  p { margin: 8px; }
+  .timestamp {
+    margin-left: 8px;
+    font-size: 12px;
+    color: gray;
+    a { margin-left: 16px; }
+  }
+}
+
+.mini_microposts {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 0 5.3vw;
+  a {
+    width: 30%;
+    margin: 1.6%;
+  }
+  img { width: 100%; }
+}
+
+.comments {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 14px;
+  .user_info {
+     padding-bottom: 14px;
+     margin-bottom: 14px;
+     border-bottom: 1px solid #ddd;
+  }
+  span {
+    overflow-wrap: break-word;
+    margin: 0 8px;
+    + a {
+      font-size: 12px;
+      color: gray;
+    }
+  }
+}

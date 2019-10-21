@@ -1,0 +1,32 @@
+<% provide(:title, "ログイン") %>
+<div class="row">
+  <div class="col-md-6">
+    <div style="font-size: 30px;">
+      <%= link_to("Please login Example User", login_path) %>
+      <h1>email: user@example.com</h1>
+      <h1>password: password</h1>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <h1 id="logo"><%= link_to "Instaclone", root_url %></h1>
+    <%= form_for(:session, url: login_path) do |f| %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.label :remember_me, class: "checkbox inline" do %>
+        <%= f.check_box :remember_me %>
+        <span>ログイン状態を保持する</span>
+      <% end %>
+
+      <%= f.submit "Log in", class: "btn btn-primary" %>
+    <% end %>
+
+    <p>アカウントをお持ちでないですか？
+      <font color="royalblue"><%= link_to "登録する", root_url %></font>
+    </p>
+  </div>
+</div>

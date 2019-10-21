@@ -1,0 +1,5 @@
+<%= @user.user_name %>さん、RecruitAppへようこそ！
+
+下記リンクにアクセスしてアカウントを有効化してください。
+
+<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>

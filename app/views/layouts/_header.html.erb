@@ -1,0 +1,14 @@
+<% if logged_in? %>
+  <header class="navbar navbar-fixed-top">
+    <div class="container">
+      <%= link_to "Instaclone", '/', id: "logo" %>
+      <nav>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "Profile", current_user %></li>
+          <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+          <li><%= link_to "Log out", logout_path, method: :delete %></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+<% end %>

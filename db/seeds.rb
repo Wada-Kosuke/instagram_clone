@@ -1,7 +1,70 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# ユーザー
+User.create!(full_name: "Example Fullname",
+             user_name: "Example Username",
+             email: "user@example.com",
+             password:              "password",
+             password_confirmation: "password",
+             admin: true,
+             activated: true,
+             activated_at: Time.zone.now,
+             user_image: File.open("./app/assets/images/user1.jpg"))
+
+30.times do |n|
+  full_name  = Faker::Name.name
+  user_name = Faker::Name.name
+  email = "user-#{n+1}@example.com"
+  password = "password"
+  User.create!(full_name: full_name,
+               user_name: user_name,
+               email: email,
+               password:              password,
+               password_confirmation: password,
+               activated: true,
+               activated_at: Time.zone.now)
+end
+
+# マイクロポスト
+
+users = User.order(:created_at).take(3)
+
+4.times do |n|
+  content = Faker::Lorem.sentence(5)
+  users.each { |user| user.microposts.create!(
+    picture: File.open("./app/assets/images/pic#{n+1}.jpg"),
+    content: content
+    )
+   }
+
+  # users.each { |user| user.comments.create!(
+  #   content: content,
+  #   micropost_id: User.first.microposts.first
+  #   )}
+  # microposts = Micropost.all
+  # users.each { |user| comment = user.comments.build(content: content)
+  #   microposts = Micropost.all
+  #   microposts.each do |m|
+  #     comment.micropost = m
+  #     comment.save
+  #   end }
+end
+
+users.each { |user|
+  microposts = Micropost.all
+  microposts.each do |micropost|
+    content = Faker::Lorem.sentence(5)
+    comment = user.comments.build(content: content)
+    comment.micropost = micropost
+    comment.save
+  end }
+
+
+# コメント
+
+
+# リレーションシップ
+users = User.all
+user  = users.first
+following = users[2..30]
+followers = users[3..20]
+following.each { |followed| user.follow(followed) }
+followers.each { |follower| follower.follow(user) }

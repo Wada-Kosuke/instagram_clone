@@ -1,0 +1,10 @@
+<% @users.each do |f| %>
+  <li>
+    <% if f.user_image? %>
+    <%= image_tag f.user_image.url, class: "user_image", style: "width: 30px;" %>
+    <% else %>
+    <%= image_tag "default_user_image.jpg", class: "user_image", style: "width: 30px;" %>
+    <% end %>
+    <span><%= link_to f.full_name, f %></span>
+  </li>
+<% end %>

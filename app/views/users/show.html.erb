@@ -1,0 +1,27 @@
+<% provide(:title, @user.user_name) %>
+<div class="row">
+  <aside class="col-md-12">
+    <section class="user_info show_user_info">
+      <% if @user.user_image? %>
+        <%= image_tag @user.user_image.url, class: "user_image" %>
+      <% else %>
+        <%= image_tag "default_user_image.jpg", class: "user_image" %>
+      <% end %>
+      <div>
+        <h1 style="text-align: center;"><%= @user.user_name %></h1>
+        <section class="stats">
+          <%= render 'shared/stats' %>
+        </section>
+      </div>
+    </section>
+    <%= render 'follow_form' if logged_in? %>
+    <% if @user.microposts.any? %>
+      <h3 style="text-align: center">投稿 (<%= @user.microposts.count %>)</h3>
+      <div class="mini_microposts">
+        <% @microposts.each do |m| %>
+          <%= link_to((image_tag m.picture.url), m) %>
+        <% end %>
+      </div>
+    <% end %>
+  </aside>
+</div>
