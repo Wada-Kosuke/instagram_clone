@@ -9,10 +9,10 @@ User.create!(full_name: "Example Fullname",
              activated_at: Time.zone.now,
              user_image: File.open("./app/assets/images/user1.jpg"))
 
-30.times do |n|
+20.times do |n|
   full_name  = Faker::Name.name
   user_name = Faker::Name.name
-  email = "user-#{n+1}@example.com"
+  email = "user-#{n+2}@example.com"
   password = "password"
   User.create!(full_name: full_name,
                user_name: user_name,
@@ -25,28 +25,26 @@ end
 
 # マイクロポスト
 
-users = User.order(:created_at).take(3)
-
 4.times do |n|
   content = Faker::Lorem.sentence(5)
-  users.each { |user| user.microposts.create!(
+  User.first.microposts.create!(
     picture: File.open("./app/assets/images/pic#{n+1}.jpg"),
-    content: content
+    content: content,
+    created_at: Time.zone.now.prev_day(n)
     )
-   }
-
-  # users.each { |user| user.comments.create!(
-  #   content: content,
-  #   micropost_id: User.first.microposts.first
-  #   )}
-  # microposts = Micropost.all
-  # users.each { |user| comment = user.comments.build(content: content)
-  #   microposts = Micropost.all
-  #   microposts.each do |m|
-  #     comment.micropost = m
-  #     comment.save
-  #   end }
 end
+
+2.times do |n|
+  content = Faker::Lorem.sentence(5)
+  User.find(n+2).microposts.create!(
+    picture: File.open("./app/assets/images/pic#{n+5}.jpg"),
+    content: content,
+    created_at: Time.zone.now.prev_day(n+1)
+    )
+end
+
+# コメント
+users = User.order(:created_at).take(3)
 
 users.each { |user|
   microposts = Micropost.all
@@ -57,14 +55,10 @@ users.each { |user|
     comment.save
   end }
 
-
-# コメント
-
-
 # リレーションシップ
 users = User.all
 user  = users.first
-following = users[2..30]
-followers = users[3..20]
+following = users[1..20]
+followers = users[2..20]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
