@@ -25,6 +25,7 @@ body {
   font-weight: bold;
   font-size: 3em;
   text-align: center;
+  margin-top: 0;
 }
 
 // header
@@ -63,6 +64,16 @@ footer {
 }
 
 // forms
+
+.test_login {
+  font-size: 22px;
+  background: #fafafa;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 50px;
+  transform: translateX(16px);
+}
 
 .micropost_form {
   background: #fff;
