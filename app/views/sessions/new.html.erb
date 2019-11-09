@@ -18,7 +18,7 @@
       <%= f.hidden_field :email, :value => "user@example.com" %>
       <%= f.hidden_field :password, :value => "password" %>
       <%= f.hidden_field :remember_me, :value => 1 %>
-      <%= f.submit "テストアカウントでログイン", class: "test_login" %>
+      <%= f.submit "テストアカウントでログイン", class: "test_login btn" %>
     <% end %>
 
     <%= form_for(:session, url: login_path) do |f| %>
