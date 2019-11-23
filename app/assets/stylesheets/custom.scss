@@ -10,6 +10,7 @@ body {
   a {
     color: inherit;
     &:hover {
+      background: none !important;
       text-decoration: none;
       color: inherit;
     }
@@ -63,8 +64,9 @@ footer {
   background: #fff;
 }
 
+.glyphicon { font-size: 18px; }
+
 .like {
-  font-size: 18px;
   display: flex;
   .like_btn { color: hotpink; }
   .unlike_btn {
@@ -96,7 +98,7 @@ footer {
 }
 
 .btn {
-  background: #eee;
+  background: #f7f7f7;
   color: #777;
   font-weight: bold;
   &:hover {

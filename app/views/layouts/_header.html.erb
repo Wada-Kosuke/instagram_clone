@@ -4,9 +4,21 @@
       <%= link_to "Instaclone", '/', id: "logo" %>
       <nav>
         <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to "Profile", current_user %></li>
-          <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-          <li><%= link_to "Log out", logout_path, method: :delete %></li>
+          <li>
+            <%= link_to user_path(current_user) do %>
+              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to edit_user_path(current_user) do %>
+              <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to logout_path, method: :delete do %>
+              <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+            <% end %>
+          </li>
         </ul>
       </nav>
     </div>
