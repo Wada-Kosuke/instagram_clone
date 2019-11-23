@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'likes/create'
+  get 'likes/destroy'
   get 'sessions/new'
   root 'users#new'
   post '/', to: 'users#create'
@@ -15,4 +17,5 @@ Rails.application.routes.draw do
   resources :microposts, only: [:create, :destroy, :show, :new]
   resources :relationships, only: [:create, :destroy]
   resources :comments, only: [:create, :destroy]
+  resources :likes, only: [:create, :destroy]
 end

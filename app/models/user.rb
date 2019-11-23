@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   mount_uploader :user_image, PictureUploader
+  has_many :likes, dependent: :destroy
+  has_many :liked_microposts, through: :likes, source: :micropost
   has_many :microposts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :active_relationships, class_name:  "Relationship",
@@ -67,6 +69,18 @@ class User < ApplicationRecord
 
   def following?(other_user)
     following.include?(other_user)
+  end
+
+  def like(micropost)
+    likes.create(micropost_id: micropost.id)
+  end
+
+  def unlike(micropost)
+    likes.find_by(micropost_id: micropost.id).destroy
+  end
+
+  def liked?(micropost)
+    liked_microposts.include?(micropost)
   end
 
   private

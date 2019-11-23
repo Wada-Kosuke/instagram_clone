@@ -23,15 +23,15 @@
         <% end %>
 
         <%= form_for(@user, url: root_url) do |f| %>
-        <%= render 'shared/error_messages', object: f.object %>
+          <%= render 'shared/error_messages', object: f.object %>
 
-        <%= f.email_field :email, class: 'form-control', placeholder: "メールアドレス" %>
-        <%= f.text_field :full_name, class: 'form-control', placeholder: "フルネーム" %>
-        <%= f.text_field :user_name, class: 'form-control', placeholder: "ユーザーネーム" %>
-        <%= f.password_field :password, class: 'form-control', placeholder: "パスワード" %>
-        <%= f.password_field :password_confirmation, class: 'form-control', placeholder: "パスワードの再確認" %>
+          <%= f.email_field :email, class: 'form-control', placeholder: "メールアドレス" %>
+          <%= f.text_field :full_name, class: 'form-control', placeholder: "フルネーム" %>
+          <%= f.text_field :user_name, class: 'form-control', placeholder: "ユーザーネーム" %>
+          <%= f.password_field :password, class: 'form-control', placeholder: "パスワード" %>
+          <%= f.password_field :password_confirmation, class: 'form-control', placeholder: "パスワードの再確認" %>
 
-        <%= f.submit "登録する", class: "btn btn-primary" %>
+          <%= f.submit "登録する", class: "btn btn-primary" %>
         <% end %>
       </div>
       <div>

@@ -13,6 +13,7 @@
     </div>
     <p><%= micropost.content if micropost.content? %></p>
   </div>
+  <%= render 'shared/like', micropost: micropost %>
   <span class="timestamp">
     <%= time_ago_in_words(micropost.created_at) %> ago
     <% if current_user?(micropost.user) %>

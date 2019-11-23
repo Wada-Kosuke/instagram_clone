@@ -63,6 +63,20 @@ footer {
   background: #fff;
 }
 
+.like {
+  font-size: 18px;
+  display: flex;
+  .like_btn { color: hotpink; }
+  .unlike_btn {
+    color: inherit;
+    &:hover { color: inherit; }
+  }
+  .like_count {
+    margin: 0;
+    vertical-align: top;
+  }
+}
+
 // forms
 
 .micropost_form {
@@ -78,7 +92,17 @@ footer {
 .btn, .form-control, textarea, select {
   border: 1px solid #bbb;
   width: 100%;
-  margin-bottom: 16px;
+  margin: 16px 0;
+}
+
+.btn {
+  background: #eee;
+  color: #777;
+  font-weight: bold;
+  &:hover {
+    background: #eee;
+    color: #777;
+  }
 }
 
 input {
@@ -86,7 +110,7 @@ input {
 }
 
 textarea {
-  margin: 14px 0;
+  margin-bottom: 14px;
   height: 120px;
 }
 
@@ -206,7 +230,7 @@ textarea {
   img { width: 100%; }
 }
 
-.comments {
+.show_post_right {
   background: #fff;
   border: 1px solid #ddd;
   padding: 14px;
@@ -215,7 +239,8 @@ textarea {
      margin-bottom: 14px;
      border-bottom: 1px solid #ddd;
   }
-  span {
+  .comments { margin-bottom: 14px; }
+  .comment {
     overflow-wrap: break-word;
     margin: 0 8px;
     + a {

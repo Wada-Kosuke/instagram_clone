@@ -1,0 +1,19 @@
+<span class="like">
+<% if current_user.liked?(micropost) %>
+  <%= form_for(current_user.likes.find_by(micropost_id: micropost.id), method: :delete, remote: true) do |f| %>
+    <%= button_tag(class: "btn-link like_btn") do %>
+      <%= content_tag :span, "", class: "glyphicon glyphicon-heart" %>
+    <% end %>
+  <% end %>
+<% else %>
+  <%= form_for(current_user.likes.build, remote: true) do |f| %>
+    <div><%= hidden_field_tag :micropost_id, micropost.id %></div>
+    <%= button_tag(class: "btn-link unlike_btn") do %>
+      <%= content_tag :span, "", class: "glyphicon glyphicon-heart-empty" %>
+    <% end %>
+  <% end %>
+<% end %>
+<% unless micropost.likes.count.zero? %>
+  <span class="like_count"><%= micropost.likes.count %></span>
+<% end %>
+</span>
