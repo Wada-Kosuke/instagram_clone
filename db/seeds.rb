@@ -43,7 +43,7 @@ end
     )
 end
 
-# コメント
+# コメント、いいね
 users = User.order(:created_at).take(3)
 
 users.each { |user|
@@ -53,7 +53,22 @@ users.each { |user|
     comment = user.comments.build(content: content)
     comment.micropost = micropost
     comment.save
-  end }
+  end
+}
+
+# いいね
+users = User.where(id: 2..4)
+
+users.each { |user|
+  exampleuser_microposts = User.first.microposts
+  exampleuser_microposts.each do |micropost|
+    user.like(micropost)
+  end
+}
+other_microposts = Micropost.where.not(user_id: User.first.id)
+other_microposts.each do |micropost|
+  User.first.like(micropost)
+end
 
 # リレーションシップ
 users = User.all
