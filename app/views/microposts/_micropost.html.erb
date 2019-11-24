@@ -1,11 +1,13 @@
 <li id="micropost-<%= micropost.id %>" class="micropost">
   <div class="user_info micropost_user_info">
-    <% if micropost.user.user_image? %>
-      <%= image_tag micropost.user.user_image.url, class: "user_image" %>
-    <% else %>
-      <%= image_tag "default_user_image.jpg", class: "user_image" %>
+    <%= link_to micropost.user do %>
+      <% if micropost.user.user_image? %>
+        <%= image_tag micropost.user.user_image.url, class: "user_image" %>
+      <% else %>
+        <%= image_tag "default_user_image.jpg", class: "user_image" %>
+      <% end %>
+      <span class="user"><%= micropost.user.user_name %></span>
     <% end %>
-    <span class="user"><%= link_to micropost.user.user_name, micropost.user %></span>
   </div>
   <div class="content">
     <div class="picture">
@@ -13,7 +15,15 @@
     </div>
     <p><%= micropost.content if micropost.content? %></p>
   </div>
-  <%= render 'shared/like', micropost: micropost %>
+  <div class="like_and_comment">
+    <%= render 'shared/like', micropost: micropost %>
+    <%= link_to micropost do %>
+      <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+      <% if micropost.comments.any? %>
+        <span style="vertical-align: top;"><%= micropost.comments.count %></span>
+      <% end %>
+    <% end %>
+  </div>
   <span class="timestamp">
     <%= time_ago_in_words(micropost.created_at) %> ago
     <% if current_user?(micropost.user) %>

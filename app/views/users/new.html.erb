@@ -3,10 +3,13 @@
     <div class="col-md-7 col-md-offset-1">
       <%= render 'shared/feed' %>
     </div>
-    <aside class="col-md-4 visible-lg visible-md">
+    <aside class="col-md-3 col-md-offset-7 visible-lg visible-md home_right">
       <section class="user_info home_user_info">
         <%= render 'shared/user_info' %>
       </section>
+      <%= link_to new_micropost_path do %>
+        <div class="btn">写真を投稿する</div>
+      <% end %>
     </aside>
   </div>
 <% else %>

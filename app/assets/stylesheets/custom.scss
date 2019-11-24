@@ -48,6 +48,14 @@ header {
 
 .glyphicon { font-size: 18px; }
 
+.like_and_comment { display: flex; }
+
+.glyphicon-comment {
+  margin: 0 10px 0 30px;
+  transform: translateY(1.5px);
+  cursor: pointer;
+}
+
 .like {
   display: flex;
   .like_btn { color: hotpink; }
@@ -148,13 +156,14 @@ textarea {
   margin-right: 14px;
 }
 
-.user_info {
+.user_info > a {
   display: flex;
+  align-items: center;
 }
 
+.home_right { position: fixed; }
 .home_user_info {
   align-items: center;
-  position: fixed;
   img { width: 60px; }
 }
 
@@ -184,6 +193,7 @@ textarea {
   background: #fff;
   width: 92.2%;
   border: 1px solid #ddd;
+  border-radius: 5px;
   .user_image { width: 40px; }
   .micropost_user_info {
     align-items: center;
