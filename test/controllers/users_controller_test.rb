@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
-
   def setup
     @user = users(:user1)
     @other_user = users(:user2)
@@ -54,5 +53,4 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     get followers_user_path(@user)
     assert_redirected_to login_url
   end
-
 end

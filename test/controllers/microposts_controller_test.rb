@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class MicropostsControllerTest < ActionDispatch::IntegrationTest
-
   def setup
     @micropost = microposts(:most_recent)
   end
@@ -28,5 +27,4 @@ class MicropostsControllerTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to root_url
   end
-
 end

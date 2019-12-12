@@ -1,5 +1,4 @@
 class UserMailer < ApplicationMailer
-
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
@@ -9,5 +8,4 @@ class UserMailer < ApplicationMailer
     @user = user
     mail to: user.email, subject: "アカウントの有効化"
   end
-
 end

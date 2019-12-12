@@ -16,5 +16,4 @@ class Micropost < ApplicationRecord
         errors.add(:picture, "アップロード可能な画像の容量は5MBまでです")
       end
     end
-
 end

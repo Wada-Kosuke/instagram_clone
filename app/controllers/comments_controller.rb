@@ -30,5 +30,4 @@ class CommentsController < ApplicationController
       @comment = current_user.comments.find_by(id: params[:id])
       redirect_to root_url unless current_user == @comment.user
     end
-
 end

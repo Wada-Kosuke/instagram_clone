@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'likes/create'
-  get 'likes/destroy'
-  get 'sessions/new'
   root 'users#new'
   post '/', to: 'users#create'
   get '/login', to: 'sessions#new'

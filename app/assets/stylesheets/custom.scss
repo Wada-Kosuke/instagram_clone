@@ -21,12 +21,10 @@ body {
 }
 
 #logo {
-  font-family: "Savoye LET";
-  padding-top: 4px;
-  font-weight: bold;
-  font-size: 3em;
+  font-size: 40px;
   text-align: center;
-  margin-top: 0;
+  letter-spacing: -2px;
+  font-family: 'Chalkboard'
 }
 
 // header
@@ -35,7 +33,7 @@ header {
   height: 72px;
   background: #fff;
   padding-top: 8px;
-  border-bottom: 1px solid #ccc !important;
+  border-bottom: 1px solid #ddd !important;
   #logo { float: left; }
 }
 
@@ -75,6 +73,7 @@ header {
   background: #fff;
   border: 1px solid #ddd;
   padding: 14px;
+  border-radius: 5px;
   h2 {
     margin: 0 0 36px;;
     text-align: center;
