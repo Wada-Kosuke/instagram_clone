@@ -11,6 +11,8 @@
         <div class="btn">写真を投稿する</div>
       <% end %>
     </aside>
+    <%= render 'microposts/post_modal' %>
+    <%= javascript_pack_tag 'modal_js' %>
   </div>
 <% else %>
   <div class="row">
