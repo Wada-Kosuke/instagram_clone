@@ -1,0 +1,21 @@
+#modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  .modal_bg {
+    background: rgba(0, 0, 0, 0.5);
+    height: 100vh;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    margin: 0 -100%;
+    padding: 0 100%;
+  }
+  .modal_content {
+    margin-top: 200px;
+    z-index: 2;
+    border-radius: 4px;
+  }
+}
