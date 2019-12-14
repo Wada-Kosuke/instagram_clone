@@ -1,1 +1,2 @@
-$("#micropost-<%= @micropost.id %> .like").html("<%= escape_javascript(render 'shared/like', micropost: @micropost) %>");
+$("#micropost-<%= @micropost.id %> .like").html("<%= escape_javascript(render 'shared/like',
+    micropost: @micropost) %>");
