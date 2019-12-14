@@ -7,13 +7,11 @@
       <section class="user_info home_user_info">
         <%= render 'shared/user_info' %>
       </section>
-      <%= link_to new_micropost_path do %>
-        <div class="btn">写真を投稿する</div>
-      <% end %>
+      <div class="btn" id="open">写真を投稿する</div>
     </aside>
-    <%= render 'microposts/post_modal' %>
-    <%= javascript_pack_tag 'modal_js' %>
   </div>
+  <%= render 'microposts/post_modal' %>
+  <%= javascript_pack_tag 'modal_js' %>
 <% else %>
   <div class="row">
     <div class="col-md-4 col-md-offset-4">
