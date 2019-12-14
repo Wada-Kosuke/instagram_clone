@@ -7,7 +7,12 @@ class MicropostsController < ApplicationController
     if @micropost.save
       redirect_to root_url
     else
-      render 'microposts/new'
+      if params[:micropost][:picture].blank?
+        flash[:danger] = "画像を選択してください"
+      elsif params[:micropost][:content].length > 140
+        flash[:danger] = "コメントは140文字以内です"
+      end
+      redirect_to root_url
     end
   end
 
