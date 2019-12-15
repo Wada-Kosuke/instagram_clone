@@ -40,6 +40,7 @@ header {
   .search_btn {
     background: #aaa;
     border: 1px solid #aaa;
+    border-radius: 5px;
     &:hover {
       color: #fff;
       background: #aaa;
@@ -98,12 +99,12 @@ header {
 }
 
 .btn {
-  background: #eee;
-  color: #777;
-  font-weight: bold;
+  background: #aaa;
+  color: #fff;
+  border-radius: 5px;
   &:hover {
-    background: #eee;
-    color: #777;
+    background: #aaa;
+    color: #fff;
   }
 }
 
@@ -145,7 +146,6 @@ textarea {
 
 .test_login {
   font-size: 22px;
-  background: #fff;
   padding: 10px 20px;
   margin-bottom: 46px;
 }
