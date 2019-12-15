@@ -62,6 +62,10 @@ class UsersController < ApplicationController
     render 'show_follow'
   end
 
+  def search
+    @users = User.where(['user_name LIKE ?', "%#{params[:search_word]}%"])
+  end
+
   private
 
     def user_params

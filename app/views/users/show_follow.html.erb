@@ -1,7 +1,7 @@
 <% provide(:title, @title) %>
 <div class="row">
-  <aside class="col-md-6">
-    <div class="current_user_in_show_follow">
+  <aside class="col-md-6 show_follow_left">
+    <div>
       <%= render 'shared/user_info' %>
     </div>
     <section class="stats">
@@ -11,8 +11,8 @@
   <div class="col-md-6">
     <h3 style="margin-bottom: 16px;"><%= @title %></h3>
     <% if @users.any? %>
-      <ul class="follow_ls">
-        <%= render 'relationship_list' %>
+      <ul class="user_ls">
+        <%= render 'user_list' %>
       </ul>
     <% end %>
   </div>
